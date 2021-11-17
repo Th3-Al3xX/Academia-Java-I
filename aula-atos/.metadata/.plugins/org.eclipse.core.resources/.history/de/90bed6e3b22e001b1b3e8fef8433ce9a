@@ -1,0 +1,100 @@
+package gui;
+
+import java.awt.EventQueue;
+import java.awt.Image;
+
+import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JToolBar;
+import java.awt.BorderLayout;
+import javax.swing.JButton;
+import javax.swing.JTextPane;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+
+public class Editor {
+
+	private JFrame frmMeueditor;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Editor window = new Editor();
+					window.frmMeueditor.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Editor() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmMeueditor = new JFrame();
+		frmMeueditor.setTitle("MeuEditor");
+		frmMeueditor.setBounds(100, 100, 650, 300);
+		frmMeueditor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JMenuBar menuBar = new JMenuBar();
+		frmMeueditor.setJMenuBar(menuBar);
+		
+		JMenu mnArquivo = new JMenu("Arquivo");
+		menuBar.add(mnArquivo);
+		
+		JMenuItem mntmAbrir = new JMenuItem("Abrir...");
+		mnArquivo.add(mntmAbrir);
+		
+		JMenuItem mntmGravar = new JMenuItem("Gravar");
+		mnArquivo.add(mntmGravar);
+		
+		JMenu mnSobre = new JMenu("Sobre");
+		menuBar.add(mnSobre);
+		
+		JToolBar toolBar = new JToolBar();
+		toolBar.setFloatable(false);
+		frmMeueditor.getContentPane().add(toolBar, BorderLayout.NORTH);
+		
+		JButton btnAbrir = new JButton("Abrir");
+		
+		// btnAbrir.setIcon(new ImageIcon(Editor.class.getResource("/img/icons8-live-folder-40.png")));
+		
+		ImageIcon aicon = new ImageIcon(Editor.class.getResource("/img/icons8-live-folder-40.png"));
+		
+		toolBar.add(btnAbrir);
+		
+		JButton btnGravar = new JButton("Gravar");
+		
+		ImageIcon sicon =  new ImageIcon(Editor.class.getResource("/img/icons8-salvar-40.png"));
+		Image auxImage = sicon.getImage();
+		ImageIcon novo = new ImageIcon(auxImage.getScaledInstance(16, 16, java.awt.Image.SCALE_SMOOTH));
+
+		btnGravar.setIcon(novo);
+		toolBar.add(btnGravar);
+		
+		JTextPane textPane = new JTextPane();
+		frmMeueditor.getContentPane().add(textPane, BorderLayout.CENTER);
+		
+		JPanel panel = new JPanel();
+		frmMeueditor.getContentPane().add(panel, BorderLayout.SOUTH);
+		
+		JLabel lblEditoDeTexto = new JLabel("Editor de texto Vs 1.0 (BETA)");
+		panel.add(lblEditoDeTexto);
+	}
+
+}

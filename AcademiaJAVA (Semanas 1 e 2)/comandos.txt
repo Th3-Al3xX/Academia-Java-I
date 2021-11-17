@@ -1,0 +1,11 @@
+Compilar no java:
+javac -d target **.java
+
+Gerar arquivo .jar:
+jar cfe LogicaProgramacao.jar LogicaProgramacao *
+
+Executar arquivo .jar:
+java -jar LogicaProgramacao.jar
+
+extrair .jar:
+jar xf LogicaProgramacao.jar

@@ -1,0 +1,47 @@
+Subreport - 1:57
+
+select a report file
+workspace respurce - > browse e selecionar o Pedidos_it.jrxml
+
+next - > use same jdbc connection - > next
+
+Add
+Parameter Name: p_pedido_id -> botão "expression editor (icone)" -> clica em id_pedido Field Integer -> finish
+Parameter Expression ficará: $F(id_pedido) -> ok
+
+Finish
+
+
+subreport - 2:00
+create a new report -> next -> Blank A4
+File name: Pedidos_it.jrxml -> Data Adapter: BancoAula - Database JDBC Connection -> aula
+SQL: select pedido_id as id_pedido,
+produto_id as id_produto,
+p2.nome as produto_nome,
+quantidade,
+pi.valor as valor
+from pedidos_items pi
+left join produtos p2 on p2.id = pi.produto_id
+
+Fields -> adicionar todos os campos (remover id_pedido)  -> next (2x) -> finish
+
+next - > use same jdbc connection - > next
+
+Add
+Parameter Name: p_pedido_id -> botão "expression editor (icone)" -> clica em id_pedido Field Integer -> finish
+Parameter Expression ficará: $F(id_pedido) -> ok
+
+Finish 
+
+
+
+variaveis - 2:49
+Name: soma_total
+Calculation: Sum
+Expression:($F(quantidade).floatValue()*$F(valor).floatValue())
+
+variavel - 2:51
+name: soma_quantidade
+Calculation: Sum
+Expression:$F(quantidade)
+

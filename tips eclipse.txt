@@ -1,0 +1,3 @@
+Ctrl + Espaço - atalho para arrumar/digitar codigo
+Ctrl + Shift + F - organizar o codigo
+Ctrl + Shift + O - importar classe/commando

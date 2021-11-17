@@ -1,0 +1,30 @@
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("aula");
+		EntityManager em = factory.createEntityManager();
+		
+//		Cliente cli = new Cliente();
+//		cli.setId(26);
+//		cli.setNome("NOVO CLIENTE TESTE AAAAAAAAAAAAAAAAAAAAA");
+//		cli.setTelefone("NOVO 494949 AAAAAAAAAAAAAAA");
+		
+		
+		//pesquisar dados
+		Cliente cli = em.find(Cliente.class, 26);
+		
+		//iniciar transacao no bd (inicio)
+		em.getTransaction().begin();
+		
+		//registro
+//		em.persist(cli);
+		
+		//alterar os dados
+//		em.merge(cli);
+		
+		//remover dados
+		em.remove(cli);
+		
+		//gravar uma transacao no bd (final)
+		em.getTransaction().commit();
+		
+		//finalizar bd (final)
+		em.close();
+		factory.close();

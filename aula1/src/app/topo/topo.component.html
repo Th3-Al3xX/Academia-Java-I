@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/">Estoque</button>
+  <button mat-button [matMenuTriggerFor]="mnCadastros">Cadastros</button>
+  <button mat-button routerLink="/crud-pedidos">Pedidos</button>
+  <button mat-button [matMenuTriggerFor]="relatorios">Relatorios</button>
+  <mat-menu #mnCadastros="matMenu">
+    <button mat-menu-item routerLink="/crud-clientes">Cadastro de Clientes</button>
+    <button mat-menu-item routerLink="/crud-fornecedores">Cadastro de Fornecedores</button>
+    <button mat-menu-item routerLink="/crud-produtos">Cadastro de Produtos</button>
+  </mat-menu>
+  <mat-menu #relatorios="matMenu">
+    <button mat-menu-item routerLink="/relat-clientes">Relatorio de Clientes</button>
+    <button mat-menu-item routerLink="/relat-fornecedores">Relatorio de Fornecedores</button>
+    <button mat-menu-item routerLink="/relat-produtos">Relatorio de Produtos</button>
+  </mat-menu>
+</mat-toolbar>
